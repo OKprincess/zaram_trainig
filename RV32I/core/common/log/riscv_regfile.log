@@ -1,0 +1,38 @@
+VCD info: dumpfile ./vcd/riscv_regfile.vcd opened for output.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[0] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[1] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[2] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[3] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[4] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[5] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[6] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[7] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[8] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[9] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[10] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[11] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[12] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[13] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[14] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[15] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[16] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[17] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[18] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[19] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[20] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[21] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[22] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[23] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[24] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[25] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[26] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[27] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[28] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[29] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[30] will conflict with an escaped identifier.
+VCD warning: array word riscv_regfile_tb.u_riscv_regfile.registers[31] will conflict with an escaped identifier.
+VCD warning: ignoring signals in previously scanned scope riscv_regfile_tb.
+VCD warning: ignoring signals in previously scanned scope riscv_regfile_tb.u_riscv_regfile.
+VCD warning: ignoring signals in previously scanned scope riscv_regfile_tb.init.
+VCD warning: ignoring signals in previously scanned scope riscv_regfile_tb.regRD.
+VCD warning: ignoring signals in previously scanned scope riscv_regfile_tb.regWR.
