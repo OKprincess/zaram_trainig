@@ -1,0 +1,1 @@
+ERROR: ./../common/riscv_imem.v:21: $readmemh's second argument must be a memory.

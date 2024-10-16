@@ -5,8 +5,9 @@
 //	* Date			: 2024-10-04 14:55:59
 //	* Description	: 
 // ==================================================
-
+`ifndef		NOINC
 `include	"riscv_configs.v"
+`endif
 
 module riscv_immext
 (
