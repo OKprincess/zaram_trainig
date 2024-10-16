@@ -18,7 +18,7 @@ module riscv_imem
 	reg					 [`XLEN-1:0]	imem_arr[0:2**(`IMEM_ADDR_BIT-2)-1];
 
 `ifdef	IMEM_INIT
-	initial		$readmemh(`IMEM_INIT_FILE, i_mem_addr);
+	initial		$readmemh(`IMEM_INIT_FILE, imem_arr);
 `endif
 
 	assign		o_imem_data = imem_arr[i_mem_addr];

@@ -124,7 +124,7 @@ module riscv_datapath
 	riscv_immext
 	u_riscv_immext(
 		.o_imm_ext			(immediate			),
-		.i_imm_instr		(i_dp_instr[31:7]	),
+		.i_imm_instr		(i_dp_instr			),
 		.i_imm_src			(i_dp_src_imm		)
 	);
 
