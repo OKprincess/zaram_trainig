@@ -1,4 +1,4 @@
-WARNING: ./../common/riscv_imem.v:21: $readmemh(/home/oksj/zaram_trainig/RV32I/core/singlecycle/riscv_program.mif): Not enough words in the file for the requested range [0:16383].
+WARNING: ./../common/riscv_imem.v:22: $readmemh(/home/oksj/zaram_trainig/RV32I/core/singlecycle/riscv_program.mif): Not enough words in the file for the requested range [0:16383].
 VCD info: dumpfile ./vcd/riscv_top.vcd opened for output.
 VCD warning: array word riscv_top_tb.u_riscv_top.u_riscv_dmem.dmem_arr[0] will conflict with an escaped identifier.
 VCD warning: array word riscv_top_tb.u_riscv_top.u_riscv_dmem.dmem_arr[1] will conflict with an escaped identifier.

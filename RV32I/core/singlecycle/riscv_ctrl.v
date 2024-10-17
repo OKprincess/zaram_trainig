@@ -244,7 +244,68 @@ module riscv_ctrl
 		endcase
 	end
 
+	`ifdef	DEBUG
+		reg [8*32-1:0]	DEBUG_INSTR;
+		always @(*) begin
+			case(i_ctrl_opcode)
+				`OPCODE_R_OP		: begin
+					case(i_ctrl_funct3)
+						`FUNCT3_ALU_ADD_SUB	: DEBUG_INSTR = i_ctrl_funct7_5b ? "sub" : "add" ;
+						`FUNCT3_ALU_XOR		: DEBUG_INSTR = "xor"                            ;
+						`FUNCT3_ALU_OR		: DEBUG_INSTR = "or"                             ;
+						`FUNCT3_ALU_AND		: DEBUG_INSTR = "and"                            ;
+						`FUNCT3_ALU_SLL		: DEBUG_INSTR = "sll"                            ;
+						`FUNCT3_ALU_SRL_SRA	: DEBUG_INSTR = i_ctrl_funct7_5b ? "sra" : "srl" ;
+						`FUNCT3_ALU_SLT		: DEBUG_INSTR = "slt"                            ;
+						`FUNCT3_ALU_SLTU	: DEBUG_INSTR = "sltu"                           ;
+					endcase
+				end
+				`OPCODE_I_OP		: begin
+					case(i_ctrl_funct3)
+						`FUNCT3_ALU_ADD_SUB	: DEBUG_INSTR = "addi"                             ;
+						`FUNCT3_ALU_XOR		: DEBUG_INSTR = "xori"                             ;
+						`FUNCT3_ALU_OR		: DEBUG_INSTR = "ori"                              ;
+						`FUNCT3_ALU_AND		: DEBUG_INSTR = "andi"                             ;
+						`FUNCT3_ALU_SLL		: DEBUG_INSTR = "slli"                             ;
+						`FUNCT3_ALU_SRL_SRA	: DEBUG_INSTR = i_ctrl_funct7_5b ? "srai" : "srli" ;
+						`FUNCT3_ALU_SLT		: DEBUG_INSTR = "slti"                             ;
+						`FUNCT3_ALU_SLTU	: DEBUG_INSTR = "sltui"                            ;
+					endcase
+				end
+				`OPCODE_I_LOAD		: begin
+					case(i_ctrl_funct3)
+						`FUNCT3_MEM_BYTE	: DEBUG_INSTR = "lb"  ;
+						`FUNCT3_MEM_HALF	: DEBUG_INSTR = "lh"  ;
+						`FUNCT3_MEM_WORD	: DEBUG_INSTR = "lw"  ;
+						`FUNCT3_MEM_BYTEU	: DEBUG_INSTR = "lbu" ;
+						`FUNCT3_MEM_HALFU	: DEBUG_INSTR = "lhu" ;
+					endcase
+				end
+				`OPCODE_S_STORE		: begin
+					case(i_ctrl_funct3)
+						`FUNCT3_MEM_BYTE	: DEBUG_INSTR = "sb";
+						`FUNCT3_MEM_HALF	: DEBUG_INSTR = "sh";
+						`FUNCT3_MEM_WORD	: DEBUG_INSTR = "sw";
+					endcase
+				end
+				`OPCODE_B_BRANCH	: begin
+					case(i_ctrl_funct3)
+						`FUNCT3_BRANCH_BEQ	: DEBUG_INSTR = "beq"  ;
+						`FUNCT3_BRANCH_BNE	: DEBUG_INSTR = "bne"  ;
+						`FUNCT3_BRANCH_BLT	: DEBUG_INSTR = "blt"  ;
+						`FUNCT3_BRANCH_BGE	: DEBUG_INSTR = "bge"  ;
+						`FUNCT3_BRANCH_BLTU	: DEBUG_INSTR = "bltu" ;
+						`FUNCT3_BRANCH_BGEU	: DEBUG_INSTR = "bgeu" ;
+					endcase
+				end
+				`OPCODE_J_JAL		: DEBUG_INSTR = "jal"   ;
+				`OPCODE_I_JALR		: DEBUG_INSTR = "jalr"  ;
+				`OPCODE_U_LUI		: DEBUG_INSTR = "lui"   ;
+				`OPCODE_U_AUIPC		: DEBUG_INSTR = "auipc" ;
+			endcase
+		end
 
+	`endif
 
 endmodule
 

@@ -46,7 +46,7 @@ module riscv_top
 	riscv_imem
 	u_riscv_imem(
 		.o_imem_data			(o_riscv_imem_instr						),
-		.i_mem_addr				(o_riscv_imem_pc[`IMEM_ADDR_BIT-1:2]	)
+		.i_imem_addr				(o_riscv_imem_pc[`IMEM_ADDR_BIT-1:2]	)
 	);
 
 	riscv_dmem
