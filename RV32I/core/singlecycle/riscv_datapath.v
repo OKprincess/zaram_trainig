@@ -38,6 +38,7 @@ module riscv_datapath
 	input						i_rstn
 );
 
+
 	// ==================================================
 	// 	Declare internal Signal: from Left to Right in BlockDiagram
 	// ==================================================

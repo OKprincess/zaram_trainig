@@ -11,8 +11,8 @@
 // ==================================================
 `define	DEBUG
 `define	XLEN			32
-`define	DMEM_ADDR_BIT	16
-`define	IMEM_ADDR_BIT	16
+`define	DMEM_ADDR_BIT	32
+`define	IMEM_ADDR_BIT	32	
 
 //`define	DMEM_INIT
 //`define	DMEM_INIT_FILE	"riscv_dmem.mif"
