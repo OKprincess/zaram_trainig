@@ -23,7 +23,12 @@ module riscv_dmem
 	reg					[`XLEN-1:0]		dmem_arr[0:2**(`DMEM_ADDR_BIT-2)-1];
 
 `ifdef	DMEM_INIT
-	initial		$readmemh(`DMEM_INIT_FILE, dmem_arr);
+	//initial		$readmemh(`DMEM_INIT_FILE, dmem_arr);
+	reg	[8*128-1:0]	FILE_DATA_MIF;
+	initial begin
+		$value$plusargs("data_mif=%s", FILE_DATA_MIF);
+		$readmemh(FILE_DATA_MIF, dmem_arr);
+	end
 `endif
 
 	//	Memory Read (output is not switching during write)
