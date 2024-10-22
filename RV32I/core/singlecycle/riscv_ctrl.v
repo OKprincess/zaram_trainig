@@ -238,6 +238,7 @@ module riscv_ctrl
 					`FUNCT3_BRANCH_BGE 	: o_ctrl_alu_ctrl = `ALU_CTRL_SLT;
 					`FUNCT3_BRANCH_BLTU	,
 					`FUNCT3_BRANCH_BGEU	: o_ctrl_alu_ctrl = `ALU_CTRL_SLTU;
+					default				: o_ctrl_alu_ctrl = `ALU_CTRL_NOP;
 				endcase
 			end
 			default			: o_ctrl_alu_ctrl = `ALU_CTRL_ADD;
