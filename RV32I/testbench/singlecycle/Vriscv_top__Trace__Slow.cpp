@@ -202,7 +202,7 @@ void Vriscv_top::traceInitSub0(void* userp, VerilatedVcd* tracep) {
         tracep->declBus(c+143,"riscv_top u_riscv_cpu u_riscv_dmem_interface byte_aligned_dmem_rd_data", false,-1, 31,0);
         tracep->declBus(c+145,"riscv_top u_riscv_imem o_imem_data", false,-1, 31,0);
         tracep->declBus(c+169,"riscv_top u_riscv_imem i_imem_addr", false,-1, 13,0);
-        tracep->declBit(c+177,"riscv_top u_riscv_imem i_clk", false,-1);
+        tracep->declBit(c+151,"riscv_top u_riscv_imem i_clk", false,-1);
         tracep->declArray(c+1,"riscv_top u_riscv_imem FILE_TEXT_MIF", false,-1, 1023,0);
         tracep->declBus(c+150,"riscv_top u_riscv_dmem o_dmem_data", false,-1, 31,0);
         tracep->declBus(c+149,"riscv_top u_riscv_dmem i_dmem_data", false,-1, 31,0);
@@ -434,6 +434,5 @@ void Vriscv_top::traceFullSub0(void* userp, VerilatedVcd* tracep) {
         tracep->fullIData(oldp+174,(4U),32);
         tracep->fullIData(oldp+175,(2U),32);
         tracep->fullIData(oldp+176,(4U),32);
-        tracep->fullBit(oldp+177,(vlTOPp->riscv_top__DOT__u_riscv_imem__DOT__i_clk));
     }
 }

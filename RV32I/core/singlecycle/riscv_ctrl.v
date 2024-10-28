@@ -143,6 +143,7 @@ module riscv_ctrl
 			`OPCODE_I_JALR		,
 			`OPCODE_I_OP		,
 			`OPCODE_I_LOAD		,
+			`OPCODE_U_AUIPC		,
 			`OPCODE_S_STORE		: o_ctrl_src_alu_b = `SRC_ALU_B_IMM;
 			default				: o_ctrl_src_alu_b = `SRC_ALU_B_RS2;
 		endcase

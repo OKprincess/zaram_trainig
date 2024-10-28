@@ -463,7 +463,6 @@ void Vriscv_top::_ctor_var_reset() {
     VL_RAND_RESET_W(256, riscv_top__DOT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR);
     riscv_top__DOT__u_riscv_cpu__DOT__u_riscv_dmem_interface__DOT__dmem_intf_strb = VL_RAND_RESET_I(4);
     riscv_top__DOT__u_riscv_cpu__DOT__u_riscv_dmem_interface__DOT__byte_aligned_dmem_rd_data = VL_RAND_RESET_I(32);
-    riscv_top__DOT__u_riscv_imem__DOT__i_clk = VL_RAND_RESET_I(1);
     { int __Vi0=0; for (; __Vi0<16384; ++__Vi0) {
             riscv_top__DOT__u_riscv_imem__DOT__imem_arr[__Vi0] = VL_RAND_RESET_I(32);
     }}
@@ -788,7 +787,7 @@ void Vriscv_top::_ctor_var_reset() {
     __Vtable4_riscv_top__DOT__u_riscv_cpu__DOT__src_alu_b[20] = 0U;
     __Vtable4_riscv_top__DOT__u_riscv_cpu__DOT__src_alu_b[21] = 0U;
     __Vtable4_riscv_top__DOT__u_riscv_cpu__DOT__src_alu_b[22] = 0U;
-    __Vtable4_riscv_top__DOT__u_riscv_cpu__DOT__src_alu_b[23] = 0U;
+    __Vtable4_riscv_top__DOT__u_riscv_cpu__DOT__src_alu_b[23] = 1U;
     __Vtable4_riscv_top__DOT__u_riscv_cpu__DOT__src_alu_b[24] = 0U;
     __Vtable4_riscv_top__DOT__u_riscv_cpu__DOT__src_alu_b[25] = 0U;
     __Vtable4_riscv_top__DOT__u_riscv_cpu__DOT__src_alu_b[26] = 0U;
