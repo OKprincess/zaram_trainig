@@ -42,7 +42,6 @@ VL_MODULE(Vriscv_top) {
     CData/*0:0*/ riscv_top__DOT__u_riscv_cpu__DOT__src_alu_b;
     CData/*3:0*/ riscv_top__DOT__u_riscv_cpu__DOT__alu_ctrl;
     CData/*3:0*/ riscv_top__DOT__u_riscv_cpu__DOT__u_riscv_dmem_interface__DOT__dmem_intf_strb;
-    CData/*0:0*/ riscv_top__DOT__u_riscv_imem__DOT__i_clk;
     IData/*31:0*/ riscv_top__DOT__u_riscv_cpu__DOT__u_riscv_datapath__DOT__regfile_rs2_data;
     IData/*31:0*/ riscv_top__DOT__u_riscv_cpu__DOT__u_riscv_datapath__DOT__immediate;
     IData/*31:0*/ riscv_top__DOT__u_riscv_cpu__DOT__u_riscv_datapath__DOT__alu_a;
