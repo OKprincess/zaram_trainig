@@ -1,3 +1,5 @@
+// two-in mux2
+
 module	mux2
 (
 	output	o_out,
