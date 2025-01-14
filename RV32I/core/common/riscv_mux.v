@@ -29,5 +29,5 @@ module	riscv_mux
 	endgenerate
 
 	assign	o_mux_data	= mux_input_arr[i_mux_sel];
-
+	// select signal==0 ---> output data =Most right data
 endmodule

@@ -17,7 +17,7 @@
 `define	DMEM_INIT
 //`define	DMEM_INIT_FILE	"riscv_dmem.mif"
 `define	IMEM_INIT
-//`define	IMEM_INIT_FILE	"riscv_imem.mif"
+//`define	IMEM_INIT_FILE	"riscv_imem.mjf"
 // ==================================================
 // 	ALU (Arithmetic & Logical Unit)	
 // ==================================================
@@ -124,6 +124,10 @@
 `define	FUNCT3_MEM_HALFU	3'b101
 
 // ==================================================
-// 	
+//	Data Forwarding for Data Hazard 	
 // ==================================================
+// Data forwarding for MUX select signals
+`define	HZD_FORWARD_RSD		2'b00	// RS Data
+`define	HZD_FORWARD_ALU		2'b01	// ALU output
+`define	HZD_FORWARD_RLT		2'b10	// Register File RD Data
 //
