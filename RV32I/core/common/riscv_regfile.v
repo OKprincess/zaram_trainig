@@ -10,6 +10,7 @@
 `include	"riscv_configs.v"
 `endif
 
+// Same as Single Cycle & Pipelined
 module riscv_regfile
 (
 	output		[`XLEN-1:0]		o_regfile_rs1_data,

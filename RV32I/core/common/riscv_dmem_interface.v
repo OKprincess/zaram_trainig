@@ -24,12 +24,11 @@ module riscv_dmem_interface
 	
 	// From CPU: write data, byte_sel
 	input		[  `XLEN-1:0]	i_dmem_intf_wr_data,
-	input		[`XLEN/8-1:0]	i_dmem_intf_byte_sel,			
+	//input		[`XLEN/8-1:0]	i_dmem_intf_byte_sel,			
 	// From Memory: read data 	
 	input		[  `XLEN-1:0]	i_dmem_intf_rd_data,
 	// Control: function3, clk
 	input		[		 2:0]	i_dmem_intf_func3,
-	input						i_clk
 );
 
 	// Bypass
