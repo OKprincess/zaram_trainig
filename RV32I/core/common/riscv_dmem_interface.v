@@ -28,7 +28,7 @@ module riscv_dmem_interface
 	// From Memory: read data 	
 	input		[  `XLEN-1:0]	i_dmem_intf_rd_data,
 	// Control: function3, clk
-	input		[		 2:0]	i_dmem_intf_func3,
+	input		[		 2:0]	i_dmem_intf_func3
 );
 
 	// Bypass
