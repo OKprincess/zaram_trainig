@@ -9,13 +9,14 @@
 `ifndef		NOINC
 `include	"../common/riscv_configs.v"
 `include	"../common/riscv_dmem_interface.v"
-`include	"riscv_hazard.v"
 `include	"../common/riscv_mux.v"
 `include	"../common/riscv_register.v"
 `include	"../common/riscv_adder.v"
 `include	"../common/riscv_regfile.v"
 `include	"../common/riscv_alu.v"
 `include	"../common/riscv_immext.v"
+`include	"riscv_ctrl.v"
+`include	"riscv_hazard.v"
 `endif
 
 module riscv_cpu
@@ -78,18 +79,92 @@ module riscv_cpu
 	end
 
 	// controll unit
-	
+	riscv_ctrl
+	u_riscv_ctrl(
+		.o_ctrl_src_imm		(src_imm		[ID]	),
+		.o_ctrl_src_rd		(w_src_rd		[ID]	),
+		.o_ctrl_src_alu_a	(w_src_alu_a	[ID]	),
+		.o_ctrl_src_alu_b	(w_src_alu_b	[ID]	),
+		.o_ctrl_reg_wr_en	(w_reg_wr_en	[ID]	),
+		.o_ctrl_mem_wr_en	(w_mem_wr_en	[ID]	),
+		.o_ctrl_alu_ctrl	(w_alu_ctrl		[ID]	),
+		.i_ctrl_opcode		(opcode			[ID]	),
+		.i_ctrl_funct3		(funct3			[ID]	),
+		.i_ctrl_funct7_5b	(funct7_5b		[ID]	)
+	);
 
-
-	// regfile
-	
+	// regfile addrress is for Hazard control
+	// ~i_clk is for synchrnous
+	riscv_regfile
+	u_riscv_regfile(
+		.o_regfile_rs1_data	(w_rs1_data		[ID]	),
+		.o_regfile_rs2_data	(w_rs2_data		[ID]	),
+		.i_regfile_rs1_addr	(rs1			[ID]	),
+		.i_regfile_rs2_addr	(rs2			[ID]	),
+		.i_regfile_rd_data	(rd_data		[WB]	),
+		.i_regfile_rd_addr	(rd				[WB]	),
+		.i_regfile_rd_wen	(reg_wr_en		[WB]	),
+		.i_clk				(~i_clk					)
+	);
 
 	// immediate extension
+	riscv_immext
+	u_riscv_immmext(
+		.o_imm_ext			(w_imm			[ID]		),
+		.i_imm_instr		(instr			[ID][31:7]	),
+		.i_imm_src			(src_imm		[ID]		)
+	);
 	// -----------------------------------------------------
 	//  EX Stage
 	// -----------------------------------------------------
+	riscv_mux
+	#(
+		N_MUX_IN			(3					)
+	)
+	u_riscv_mux_fwd_a(
+		.o_mux_data			(fwd_a		[EX]	),
+		.i_mux_concat_data	(mux_concat_fwd_a	),
+		.i_mux_sel			(fwd_sel_a	[EX]	)
+	);
+
+	riscv_mux
+	#(
+		N_MUX_IN			(3					)
+	)
+	u_riscv_mux_fwd_b(
+		.o_mux_data			(fwd_b		[EX]	),
+		.i_mux_concat_data	(mux_concat_fwd_b	),
+		.i_mux_sel			(fwd_sel_b	[EX]	)
+	);
 
 
+	riscv_mux
+	#(
+		N_MUX_IN			(2					)
+	)
+	u_riscv_mux_alu_a(
+		.o_mux_data			(alu_a		[EX]	),
+		.i_mux_concat_data	(mux_concat_alu_a	),
+		.i_mux_sel			(src_alu_a	[EX]	)
+	);
+
+	riscv_alu
+	u_riscv_alu(
+		.o_alu_out			(w_alu_out	[EX]	),
+		.o_alu_src_pc		(src_pc		[EX]	),
+		.i_alu_a			(alu_a		[EX]	),
+		.i_alu_b			(alu_b		[EX]	),
+		.i_alu_opcode		(opcode		[EX]	),
+		.i_alu_funct3		(funct3		[EX]	),
+		.i_alu_ctrl			(alu_ctrl	[EX]	)
+	);
+
+	riscv_adder
+	u_riscv_adder_pc_plus_imm(
+		.o_adder_sum		(pcimm		[EX]	),
+		.i_adder_a			(pc			[EX]	),
+		.i_adder_b			(imm		[EX]	)
+	);
 	// -----------------------------------------------------
 	//  MM Stage
 	// -----------------------------------------------------
@@ -107,12 +182,18 @@ module riscv_cpu
 		.i_dmem_intf_func3		(funct3		[MM]		)
 		);
 		
-		
-
 	// -----------------------------------------------------
 	//  WB Stage
 	// -----------------------------------------------------
-
+	riscv_mux
+	#(
+		.N_MUX_IN		(4						)
+	)
+	u_riscv_mux_regfile_rd_data(
+		.o_mux_data			(rd_data	[WB]	),
+		.i_mux_concat_data	(mux_concat_rd		),
+		.i_mux_sel			(src_rd		[WB]	)
+	);
 
 	// -----------------------------------------------------
 	// Internal Signals 
