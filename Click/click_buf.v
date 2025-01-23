@@ -21,8 +21,7 @@ module click_buf(
   wire		wi_out;
   wire		clk_out;
   reg		toggle;
-  wire		wi_ff_out;
-  
+
   // INV gate
   assign	ai_out 	= ~in_req;
   
@@ -34,14 +33,13 @@ module click_buf(
   
   // Flip-Flop for toggle with reset
   always @(posedge clk_out or posedge reset) begin
-    if (reset)
+	if (reset) begin
       toggle <= 0;
-    else
-      toggle <= ~wi_ff_out;
-  end
+  	end else begin
+      toggle <= ~toggle;
+  	end
+end
   
-  // INV for wi_ff
-	assign wi_ff_out = ~toggle;
 
 	// Flip-Flops for data transfer
 	always @(posedge clk_out) begin

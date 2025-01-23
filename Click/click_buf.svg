@@ -1,0 +1,262 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:s="https://github.com/nturley/netlistsvg" width="637" height="360.5">
+  <style>svg {
+    stroke:#000;
+    fill:none;
+  }
+  text {
+    fill:#000;
+    stroke:none;
+    font-size:10px;
+    font-weight: bold;
+    font-family: "Courier New", monospace;
+  }
+  .nodelabel {
+    text-anchor: middle;
+  }
+  .inputPortLabel {
+    text-anchor: end;
+  }
+  .splitjoinBody {
+    fill:#000;
+  }</style>
+  <g s:type="mux" transform="translate(165,288.5)" s:width="20" s:height="40" id="cell_$abc$78$auto$blifparse.cc:371:parse_blif$79">
+    <s:alias val="$pmux"/>
+    <s:alias val="$mux"/>
+    <s:alias val="$_MUX_"/>
+    <path d="M0,0 L20,10 L20,30 L0,40 Z" class="cell_$abc$78$auto$blifparse.cc:371:parse_blif$79"/>
+    <g s:x="0" s:y="10" s:pid="A"/>
+    <g s:x="0" s:y="30" s:pid="B"/>
+    <g s:x="10" s:y="35" s:pid="S"/>
+    <g s:x="20" s:y="20" s:pid="Y"/>
+  </g>
+  <g s:type="mux" transform="translate(165,191)" s:width="20" s:height="40" id="cell_$abc$78$auto$blifparse.cc:371:parse_blif$80">
+    <s:alias val="$pmux"/>
+    <s:alias val="$mux"/>
+    <s:alias val="$_MUX_"/>
+    <path d="M0,0 L20,10 L20,30 L0,40 Z" class="cell_$abc$78$auto$blifparse.cc:371:parse_blif$80"/>
+    <g s:x="0" s:y="10" s:pid="A"/>
+    <g s:x="0" s:y="30" s:pid="B"/>
+    <g s:x="10" s:y="35" s:pid="S"/>
+    <g s:x="20" s:y="20" s:pid="Y"/>
+  </g>
+  <g s:type="not" transform="translate(567,236)" s:width="30" s:height="20" id="cell_$abc$78$auto$blifparse.cc:371:parse_blif$81">
+    <s:alias val="$_NOT_"/>
+    <s:alias val="$not"/>
+    <s:alias val="$logic_not"/>
+    <path d="M0,0 L0,20 L20,10 Z" class="cell_$abc$78$auto$blifparse.cc:371:parse_blif$81"/>
+    <circle cx="23" cy="10" r="3" class="cell_$abc$78$auto$blifparse.cc:371:parse_blif$81"/>
+    <g s:x="0" s:y="10" s:pid="A"/>
+    <g s:x="25" s:y="10" s:pid="Y"/>
+  </g>
+  <g s:type="nand" transform="translate(89,12)" s:width="30" s:height="25" id="cell_$abc$78$auto$blifparse.cc:371:parse_blif$82">
+    <s:alias val="$nand"/>
+    <s:alias val="$logic_nand"/>
+    <s:alias val="$_NAND_"/>
+    <s:alias val="$_ANDNOT_"/>
+    <path d="M0,0 L0,25 L15,25 A15 12.5 0 0 0 15,0 Z" class="cell_$abc$78$auto$blifparse.cc:371:parse_blif$82"/>
+    <circle cx="34" cy="12.5" r="3" class="cell_$abc$78$auto$blifparse.cc:371:parse_blif$82"/>
+    <g s:x="0" s:y="5" s:pid="A"/>
+    <g s:x="0" s:y="20" s:pid="B"/>
+    <g s:x="36" s:y="12.5" s:pid="Y"/>
+  </g>
+  <g s:type="nand" transform="translate(89,77)" s:width="30" s:height="25" id="cell_$abc$78$auto$blifparse.cc:371:parse_blif$83">
+    <s:alias val="$nand"/>
+    <s:alias val="$logic_nand"/>
+    <s:alias val="$_NAND_"/>
+    <s:alias val="$_ANDNOT_"/>
+    <path d="M0,0 L0,25 L15,25 A15 12.5 0 0 0 15,0 Z" class="cell_$abc$78$auto$blifparse.cc:371:parse_blif$83"/>
+    <circle cx="34" cy="12.5" r="3" class="cell_$abc$78$auto$blifparse.cc:371:parse_blif$83"/>
+    <g s:x="0" s:y="5" s:pid="A"/>
+    <g s:x="0" s:y="20" s:pid="B"/>
+    <g s:x="36" s:y="12.5" s:pid="Y"/>
+  </g>
+  <g s:type="mux" transform="translate(165,59.5)" s:width="20" s:height="40" id="cell_$abc$78$auto$blifparse.cc:371:parse_blif$84">
+    <s:alias val="$pmux"/>
+    <s:alias val="$mux"/>
+    <s:alias val="$_MUX_"/>
+    <path d="M0,0 L20,10 L20,30 L0,40 Z" class="cell_$abc$78$auto$blifparse.cc:371:parse_blif$84"/>
+    <g s:x="0" s:y="10" s:pid="A"/>
+    <g s:x="0" s:y="30" s:pid="B"/>
+    <g s:x="10" s:y="35" s:pid="S"/>
+    <g s:x="20" s:y="20" s:pid="Y"/>
+  </g>
+  <g s:type="dff" transform="translate(220,201)" s:width="30" s:height="40" id="cell_$auto$simplemap.cc:420:simplemap_dff$66">
+    <s:alias val="$dff"/>
+    <s:alias val="$_DFF_"/>
+    <s:alias val="$_DFF_P_"/>
+    <rect width="30" height="40" x="0" y="0" class="cell_$auto$simplemap.cc:420:simplemap_dff$66"/>
+    <path d="M0,35 L5,30 L0,25" class="cell_$auto$simplemap.cc:420:simplemap_dff$66"/>
+    <g s:x="30" s:y="10" s:pid="Q"/>
+    <g s:x="0" s:y="30" s:pid="CLK"/>
+    <g s:x="0" s:y="30" s:pid="C"/>
+    <g s:x="0" s:y="10" s:pid="D"/>
+  </g>
+  <g s:type="dff" transform="translate(220,298.5)" s:width="30" s:height="40" id="cell_$auto$simplemap.cc:420:simplemap_dff$67">
+    <s:alias val="$dff"/>
+    <s:alias val="$_DFF_"/>
+    <s:alias val="$_DFF_P_"/>
+    <rect width="30" height="40" x="0" y="0" class="cell_$auto$simplemap.cc:420:simplemap_dff$67"/>
+    <path d="M0,35 L5,30 L0,25" class="cell_$auto$simplemap.cc:420:simplemap_dff$67"/>
+    <g s:x="30" s:y="10" s:pid="Q"/>
+    <g s:x="0" s:y="30" s:pid="CLK"/>
+    <g s:x="0" s:y="30" s:pid="C"/>
+    <g s:x="0" s:y="10" s:pid="D"/>
+  </g>
+  <g s:type="generic" transform="translate(292,129.5)" s:width="30" s:height="40" id="cell_$auto$simplemap.cc:496:simplemap_adff$77">
+    <text x="15" y="-4" class="nodelabel cell_$auto$simplemap.cc:496:simplemap_adff$77" s:attribute="ref">$_DFF_PP0_</text>
+    <rect width="30" height="60" s:generic="body" class="cell_$auto$simplemap.cc:496:simplemap_adff$77"/>
+    <g transform="translate(0,10)" s:x="0" s:y="10" s:pid="in0" id="port_$auto$simplemap.cc:496:simplemap_adff$77~C">
+      <text x="-3" y="-4" class="inputPortLabel cell_$auto$simplemap.cc:496:simplemap_adff$77">C</text>
+    </g>
+    <g transform="translate(0,30)" s:x="0" s:y="10" s:pid="in0" id="port_$auto$simplemap.cc:496:simplemap_adff$77~D">
+      <text x="-3" y="-4" class="inputPortLabel cell_$auto$simplemap.cc:496:simplemap_adff$77">D</text>
+    </g>
+    <g transform="translate(0,50)" s:x="0" s:y="10" s:pid="in0" id="port_$auto$simplemap.cc:496:simplemap_adff$77~R">
+      <text x="-3" y="-4" class="inputPortLabel cell_$auto$simplemap.cc:496:simplemap_adff$77">R</text>
+    </g>
+    <g transform="translate(30,10)" s:x="30" s:y="10" s:pid="out0" id="port_$auto$simplemap.cc:496:simplemap_adff$77~Q">
+      <text x="5" y="-4" style="fill:#000; stroke:none" class="cell_$auto$simplemap.cc:496:simplemap_adff$77">Q</text>
+    </g>
+  </g>
+  <g s:type="inputExt" transform="translate(89,231)" s:width="30" s:height="20" id="cell_reset">
+    <text x="15" y="-4" class="nodelabel cell_reset" s:attribute="ref">reset</text>
+    <s:alias val="$_inputExt_"/>
+    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z" class="cell_reset"/>
+    <g s:x="28" s:y="10" s:pid="Y"/>
+  </g>
+  <g s:type="inputExt" transform="translate(12,298.5)" s:width="30" s:height="20" id="cell_in_data">
+    <text x="15" y="-4" class="nodelabel cell_in_data" s:attribute="ref">in_data</text>
+    <s:alias val="$_inputExt_"/>
+    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z" class="cell_in_data"/>
+    <g s:x="28" s:y="10" s:pid="Y"/>
+  </g>
+  <g s:type="inputExt" transform="translate(12,87)" s:width="30" s:height="20" id="cell_in_req">
+    <text x="15" y="-4" class="nodelabel cell_in_req" s:attribute="ref">in_req</text>
+    <s:alias val="$_inputExt_"/>
+    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z" class="cell_in_req"/>
+    <g s:x="28" s:y="10" s:pid="Y"/>
+  </g>
+  <g s:type="outputExt" transform="translate(567,65)" s:width="30" s:height="20" id="cell_in_ack">
+    <text x="15" y="-4" class="nodelabel cell_in_ack" s:attribute="ref">in_ack</text>
+    <s:alias val="$_outputExt_"/>
+    <path d="M30,0 L30,20 L15,20 L0,10 L15,0 Z" class="cell_in_ack"/>
+    <g s:x="0" s:y="10" s:pid="A"/>
+  </g>
+  <g s:type="outputExt" transform="translate(567,288.5)" s:width="30" s:height="20" id="cell_out_data">
+    <text x="15" y="-4" class="nodelabel cell_out_data" s:attribute="ref">out_data</text>
+    <s:alias val="$_outputExt_"/>
+    <path d="M30,0 L30,20 L15,20 L0,10 L15,0 Z" class="cell_out_data"/>
+    <g s:x="0" s:y="10" s:pid="A"/>
+  </g>
+  <g s:type="outputExt" transform="translate(567,130)" s:width="30" s:height="20" id="cell_out_req">
+    <text x="15" y="-4" class="nodelabel cell_out_req" s:attribute="ref">out_req</text>
+    <s:alias val="$_outputExt_"/>
+    <path d="M30,0 L30,20 L15,20 L0,10 L15,0 Z" class="cell_out_req"/>
+    <g s:x="0" s:y="10" s:pid="A"/>
+  </g>
+  <g s:type="inputExt" transform="translate(12,22)" s:width="30" s:height="20" id="cell_out_ack">
+    <text x="15" y="-4" class="nodelabel cell_out_ack" s:attribute="ref">out_ack</text>
+    <s:alias val="$_inputExt_"/>
+    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z" class="cell_out_ack"/>
+    <g s:x="28" s:y="10" s:pid="Y"/>
+  </g>
+  <g s:type="join" transform="translate(368.3333333333333,278)" s:width="4" s:height="40" id="cell_$join$,7,8,">
+    <rect width="5" height="40" class="splitjoinBody" s:generic="body"/>
+    <s:alias val="$_join_"/>
+    <g s:x="5" s:y="20" s:pid="out"/>
+    <g transform="translate(0,10)" s:x="0" s:y="10" s:pid="in0">
+      <text x="-3" y="-4" class="inputPortLabel">0</text>
+    </g>
+    <g transform="translate(0,30)" s:x="0" s:y="10" s:pid="in0">
+      <text x="-3" y="-4" class="inputPortLabel">1</text>
+    </g>
+  </g>
+  <g s:type="split" transform="translate(107.33333333333333,288)" s:width="5" s:height="40" id="cell_$split$,3,4,">
+    <rect width="5" height="40" class="splitjoinBody" s:generic="body"/>
+    <s:alias val="$_split_"/>
+    <g s:x="0" s:y="20" s:pid="in"/>
+    <g transform="translate(4,10)" s:x="4" s:y="10" s:pid="out0">
+      <text x="5" y="-4">1</text>
+    </g>
+    <g transform="translate(4,30)" s:x="4" s:y="10" s:pid="out0">
+      <text x="5" y="-4">0</text>
+    </g>
+  </g>
+  <line x1="112.33333333333333" x2="165" y1="298.5" y2="298.5" class="net_4"/>
+  <line x1="250" x2="260" y1="308.5" y2="308.5" class="net_8"/>
+  <line x1="260" x2="260" y1="308.5" y2="348.5" class="net_8"/>
+  <line x1="260" x2="155" y1="348.5" y2="348.5" class="net_8"/>
+  <line x1="155" x2="155" y1="348.5" y2="318.5" class="net_8"/>
+  <circle cx="260" cy="308.5" r="2" style="fill:#000" class="net_8"/>
+  <line x1="155" x2="165" y1="318.5" y2="318.5" class="net_8"/>
+  <line x1="250" x2="368.3333333333333" y1="308.5" y2="308.5" class="net_8"/>
+  <line x1="117" x2="135" y1="241" y2="241" class="net_2"/>
+  <line x1="135" x2="135" y1="241" y2="338.5" class="net_2"/>
+  <line x1="135" x2="175" y1="338.5" y2="338.5" class="net_2"/>
+  <circle cx="135" cy="241" r="2" style="fill:#000" class="net_2"/>
+  <line x1="175" x2="175" y1="338.5" y2="323.5" class="net_2"/>
+  <line x1="117" x2="175" y1="241" y2="241" class="net_2"/>
+  <line x1="175" x2="175" y1="241" y2="226" class="net_2"/>
+  <line x1="117" x2="135" y1="241" y2="241" class="net_2"/>
+  <line x1="135" x2="135" y1="241" y2="180" class="net_2"/>
+  <line x1="135" x2="292" y1="180" y2="180" class="net_2"/>
+  <line x1="112.33333333333333" x2="145" y1="318.5" y2="318.5" class="net_3"/>
+  <line x1="145" x2="145" y1="318.5" y2="201" class="net_3"/>
+  <line x1="145" x2="165" y1="201" y2="201" class="net_3"/>
+  <line x1="250" x2="260" y1="211" y2="211" class="net_7"/>
+  <line x1="260" x2="260" y1="211" y2="251" class="net_7"/>
+  <line x1="260" x2="155" y1="251" y2="251" class="net_7"/>
+  <line x1="155" x2="155" y1="251" y2="221" class="net_7"/>
+  <circle cx="260" cy="251" r="2" style="fill:#000" class="net_7"/>
+  <line x1="155" x2="165" y1="221" y2="221" class="net_7"/>
+  <line x1="250" x2="260" y1="211" y2="211" class="net_7"/>
+  <line x1="260" x2="260" y1="211" y2="288.5" class="net_7"/>
+  <line x1="260" x2="368.3333333333333" y1="288.5" y2="288.5" class="net_7"/>
+  <line x1="323" x2="542" y1="140" y2="140" class="net_6"/>
+  <line x1="542" x2="542" y1="140" y2="246" class="net_6"/>
+  <line x1="542" x2="567" y1="246" y2="246" class="net_6"/>
+  <line x1="323" x2="542" y1="140" y2="140" class="net_6"/>
+  <line x1="542" x2="542" y1="140" y2="109.5" class="net_6"/>
+  <line x1="542" x2="175" y1="109.5" y2="109.5" class="net_6"/>
+  <circle cx="542" cy="109.5" r="2" style="fill:#000" class="net_6"/>
+  <circle cx="542" cy="140" r="2" style="fill:#000" class="net_6"/>
+  <line x1="175" x2="175" y1="109.5" y2="94.5" class="net_6"/>
+  <line x1="323" x2="542" y1="140" y2="140" class="net_6"/>
+  <line x1="542" x2="542" y1="140" y2="75" class="net_6"/>
+  <line x1="542" x2="567" y1="75" y2="75" class="net_6"/>
+  <line x1="323" x2="567" y1="140" y2="140" class="net_6"/>
+  <line x1="40" x2="64" y1="97" y2="97" class="net_5"/>
+  <line x1="64" x2="64" y1="97" y2="17" class="net_5"/>
+  <circle cx="64" cy="97" r="2" style="fill:#000" class="net_5"/>
+  <line x1="64" x2="89" y1="17" y2="17" class="net_5"/>
+  <line x1="40" x2="89" y1="97" y2="97" class="net_5"/>
+  <line x1="40" x2="89" y1="32" y2="32" class="net_9"/>
+  <line x1="40" x2="74" y1="32" y2="32" class="net_9"/>
+  <line x1="74" x2="74" y1="32" y2="82" class="net_9"/>
+  <circle cx="74" cy="32" r="2" style="fill:#000" class="net_9"/>
+  <line x1="74" x2="89" y1="82" y2="82" class="net_9"/>
+  <line x1="125" x2="135" y1="24.5" y2="24.5" class="net_13"/>
+  <line x1="135" x2="135" y1="24.5" y2="69.5" class="net_13"/>
+  <line x1="135" x2="165" y1="69.5" y2="69.5" class="net_13"/>
+  <line x1="125" x2="165" y1="89.5" y2="89.5" class="net_14"/>
+  <line x1="185" x2="195" y1="79.5" y2="79.5" class="net_15"/>
+  <line x1="195" x2="195" y1="79.5" y2="231" class="net_15"/>
+  <circle cx="195" cy="231" r="2" style="fill:#000" class="net_15"/>
+  <line x1="195" x2="220" y1="231" y2="231" class="net_15"/>
+  <line x1="185" x2="195" y1="79.5" y2="79.5" class="net_15"/>
+  <line x1="195" x2="195" y1="79.5" y2="328.5" class="net_15"/>
+  <line x1="195" x2="220" y1="328.5" y2="328.5" class="net_15"/>
+  <line x1="185" x2="195" y1="79.5" y2="79.5" class="net_15"/>
+  <line x1="195" x2="195" y1="79.5" y2="140" class="net_15"/>
+  <circle cx="195" cy="140" r="2" style="fill:#000" class="net_15"/>
+  <line x1="195" x2="292" y1="140" y2="140" class="net_15"/>
+  <line x1="185" x2="220" y1="211" y2="211" class="net_11"/>
+  <line x1="185" x2="220" y1="308.5" y2="308.5" class="net_10"/>
+  <line x1="592" x2="625" y1="246" y2="246" class="net_12"/>
+  <line x1="625" x2="625" y1="246" y2="266" class="net_12"/>
+  <line x1="625" x2="270" y1="266" y2="266" class="net_12"/>
+  <line x1="270" x2="270" y1="266" y2="160" class="net_12"/>
+  <line x1="270" x2="292" y1="160" y2="160" class="net_12"/>
+  <line x1="374.3333333333333" x2="567" y1="298.5" y2="298.5" class="net_7,8"/>
+  <line x1="40" x2="107.33333333333333" y1="308.5" y2="308.5" class="net_3,4"/>
+</svg>
