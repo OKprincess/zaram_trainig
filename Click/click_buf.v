@@ -19,7 +19,7 @@ module click_buf(
   // Intermal signals
   wire		ai_out;
   wire		wi_out;
-  wire		ckl_out;
+  wire		clk_out;
   reg		toggle;
   wire		wi_ff_out;
   
