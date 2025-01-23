@@ -93,4 +93,24 @@ module click_buf_tb;
 	             $time, reset, in_data, in_req, in_ack, out_data, out_req, out_ack);
 	end
 
+
+
+// --------------------------------------------------
+//	Dump VCD
+// --------------------------------------------------
+	reg	[8*32-1:0]	vcd_file;
+	initial begin
+		if ($value$plusargs("vcd_file=%s", vcd_file)) begin
+			$dumpfile(vcd_file);
+			$dumpvars;
+		end else begin
+			$dumpfile("click_buf_tb.vcd");
+			$dumpvars;
+		end
+	end
+
+
+
+
+
 endmodule
