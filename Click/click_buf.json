@@ -1,0 +1,217 @@
+{
+  "creator": "Yosys 0.9 (git sha1 1979e0b)",
+  "modules": {
+    "click_buf": {
+      "attributes": {
+        "src": "click_buf.v:9"
+      },
+      "ports": {
+        "reset": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "in_data": {
+          "direction": "input",
+          "bits": [ 3, 4 ]
+        },
+        "in_req": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "in_ack": {
+          "direction": "output",
+          "bits": [ "0" ]
+        },
+        "out_data": {
+          "direction": "output",
+          "bits": [ 6, 7 ]
+        },
+        "out_req": {
+          "direction": "output",
+          "bits": [ "0" ]
+        },
+        "out_ack": {
+          "direction": "input",
+          "bits": [ 8 ]
+        }
+      },
+      "cells": {
+        "$abc$72$auto$blifparse.cc:371:parse_blif$73": {
+          "hide_name": 1,
+          "type": "$_MUX_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "B": [ 6 ],
+            "S": [ 2 ],
+            "Y": [ 9 ]
+          }
+        },
+        "$abc$72$auto$blifparse.cc:371:parse_blif$74": {
+          "hide_name": 1,
+          "type": "$_MUX_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4 ],
+            "B": [ 7 ],
+            "S": [ 2 ],
+            "Y": [ 10 ]
+          }
+        },
+        "$abc$72$auto$blifparse.cc:371:parse_blif$75": {
+          "hide_name": 1,
+          "type": "$_ANDNOT_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5 ],
+            "B": [ 8 ],
+            "Y": [ 11 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$65": {
+          "hide_name": 1,
+          "type": "$_DFF_P_",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "click_buf.v:47"
+          },
+          "port_directions": {
+            "C": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "C": [ 11 ],
+            "D": [ 9 ],
+            "Q": [ 6 ]
+          }
+        },
+        "$auto$simplemap.cc:420:simplemap_dff$66": {
+          "hide_name": 1,
+          "type": "$_DFF_P_",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "click_buf.v:47"
+          },
+          "port_directions": {
+            "C": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "C": [ 11 ],
+            "D": [ 10 ],
+            "Q": [ 7 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\out_data[1:0]": {
+          "hide_name": 1,
+          "bits": [ 9, 10 ],
+          "attributes": {
+            "src": "click_buf.v:47"
+          }
+        },
+        "clk_out": {
+          "hide_name": 0,
+          "bits": [ 11 ],
+          "attributes": {
+            "src": "click_buf.v:33"
+          }
+        },
+        "in_ack": {
+          "hide_name": 0,
+          "bits": [ "0" ],
+          "attributes": {
+            "src": "click_buf.v:13"
+          }
+        },
+        "in_data": {
+          "hide_name": 0,
+          "bits": [ 3, 4 ],
+          "attributes": {
+            "src": "click_buf.v:11"
+          }
+        },
+        "in_req": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "click_buf.v:12"
+          }
+        },
+        "out_ack": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "click_buf.v:16"
+          }
+        },
+        "out_data": {
+          "hide_name": 0,
+          "bits": [ 6, 7 ],
+          "attributes": {
+            "src": "click_buf.v:14"
+          }
+        },
+        "out_req": {
+          "hide_name": 0,
+          "bits": [ "0" ],
+          "attributes": {
+            "src": "click_buf.v:15"
+          }
+        },
+        "reset": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "click_buf.v:10"
+          }
+        },
+        "toggle": {
+          "hide_name": 0,
+          "bits": [ "0" ],
+          "attributes": {
+            "src": "click_buf.v:23"
+          }
+        },
+        "wi_out": {
+          "hide_name": 0,
+          "bits": [ "1" ],
+          "attributes": {
+            "src": "click_buf.v:21"
+          }
+        }
+      }
+    }
+  }
+}
