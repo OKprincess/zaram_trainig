@@ -145,7 +145,7 @@
           "hide_name": 0,
           "bits": [ 11 ],
           "attributes": {
-            "src": "click_buf.v:33"
+            "src": "click_buf.v:22"
           }
         },
         "in_ack": {
