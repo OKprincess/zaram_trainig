@@ -13,7 +13,9 @@ module click_buf(
   output	reg			in_ack,		// Input acknowledge
   output	reg	[1:0]	out_data,	// 2-bit output dta
   output	reg			out_req,	// Output request
-  input					out_ack		// Output acknowledge
+  input					out_ack,		// Output acknowledge
+
+  output	reg			o_fire
 );
   
   // Intermal signals
@@ -32,14 +34,14 @@ module click_buf(
   assign	clk_out	= ~((ai_out | out_ack | toggle) & wi_out);
   
   // Flip-Flop for toggle with reset
-  always @(posedge clk_out or posedge reset) begin
-	if (reset) begin
-      toggle <= 0;
-  	end else begin
-      toggle <= ~toggle;
-  	end
-end
+  always @(negedge reset) begin
+	  	toggle <= 0;
+   end
   
+  always @(posedge clk_out ) begin
+      	toggle <= ~toggle;
+  	
+   end
 
 	// Flip-Flops for data transfer
 	always @(posedge clk_out) begin
@@ -53,6 +55,7 @@ end
 	always @(*) begin
     	in_ack = toggle;
     	out_req = toggle;
+		o_fire	= clk_out;
 	end
 
 endmodule

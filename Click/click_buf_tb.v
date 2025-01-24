@@ -8,7 +8,7 @@
 
 `define	CLKFREQ		100		// Clock Freq. (Unit: MHz)
 `define	SIMCYCLE	`NVEC	// Sim. Cycles
-`define NVEC		10		// # of Test Vector
+`define NVEC		100		// # of Test Vector
 
 `include			"click_buf.v"
 
@@ -22,6 +22,8 @@ module click_buf_tb;
 	wire [1:0] 	out_data;
 	wire 		out_req;
 	reg 		out_ack;
+
+	wire		o_fire;
 	
 	// Clock signal for testing
 	reg clk;
@@ -35,7 +37,8 @@ module click_buf_tb;
 	    .in_ack		(in_ack),
 	    .out_data	(out_data),
 	    .out_req	(out_req),
-	    .out_ack	(out_ack)
+	    .out_ack	(out_ack),
+		.o_fire		(o_fire)
 	);
 	
 	// Clock generation
@@ -43,44 +46,61 @@ module click_buf_tb;
 	    clk = 0;
 	    forever #5 clk = ~clk;  // 100 MHz clock (10 ns period)
 	end
-	
+
+
+	reg		[8*32-1:0]	taskState;
+	task init;
+		begin
+			taskState		= "Init";
+			clk				= 0;
+			reset			= 0;
+			in_data			= 2'b00;
+			in_req			= 0;
+			out_ack			= 0;
+		end 
+	endtask
+
+
+	integer		i, j;
 	// Test sequence
 	initial begin
 	    // Initialize signals
-	    reset = 1;
-	    in_data = 2'b00;
-	    in_req = 0;
-	    out_ack = 0;
-	
+		init();	
 	    // Reset pulse
 	    #10;
-	    reset = 0;
+	    reset = 1;
 	
 	    // Test Case 1: Basic data transfer
 	    #10;
+		taskState	= "Ready";
+		reset		= 0;
+		#10
 	    in_data = 2'b10;
 	    in_req = 1;
 	    #10;
 	    in_req = 0;  // Deactivate request
 	    #10;
 	
-	    // Simulate out_ack response
+	    /* Simulate out_ack response
 	    out_ack = 1;
 	    #10;
 	    out_ack = 0;
-	
+		*/
+
 	    // Test Case 2: Another data transfer
 	    #20;
-	    in_data = 2'b01;
-	    in_req = 1;
-	    #10;
-	    in_req = 0;
-	    #10;
-	
+		taskState	= "Case1";
+	    in_data		= 2'b11;
+		in_req		= 1;
+		#10;
+		if (o_fire == 1) begin
+			out_ack = 1;
+			in_req  = 0;
+		end else begin
+			out_ack = 0;
+		end
+		#10
 	    // Simulate out_ack response
-	    out_ack = 1;
-	    #10;
-	    out_ack = 0;
 	
 	    // Finish simulation
 	    #50;
