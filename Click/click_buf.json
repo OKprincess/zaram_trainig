@@ -20,23 +20,27 @@
         },
         "in_ack": {
           "direction": "output",
-          "bits": [ 6 ]
+          "bits": [ "0" ]
         },
         "out_data": {
           "direction": "output",
-          "bits": [ 7, 8 ]
+          "bits": [ 6, 7 ]
         },
         "out_req": {
           "direction": "output",
-          "bits": [ 6 ]
+          "bits": [ "0" ]
         },
         "out_ack": {
           "direction": "input",
+          "bits": [ 8 ]
+        },
+        "o_fire": {
+          "direction": "output",
           "bits": [ 9 ]
         }
       },
       "cells": {
-        "$abc$78$auto$blifparse.cc:371:parse_blif$79": {
+        "$abc$73$auto$blifparse.cc:371:parse_blif$74": {
           "hide_name": 1,
           "type": "$_MUX_",
           "parameters": {
@@ -51,12 +55,12 @@
           },
           "connections": {
             "A": [ 4 ],
-            "B": [ 8 ],
+            "B": [ 7 ],
             "S": [ 2 ],
             "Y": [ 10 ]
           }
         },
-        "$abc$78$auto$blifparse.cc:371:parse_blif$80": {
+        "$abc$73$auto$blifparse.cc:371:parse_blif$75": {
           "hide_name": 1,
           "type": "$_MUX_",
           "parameters": {
@@ -71,28 +75,12 @@
           },
           "connections": {
             "A": [ 3 ],
-            "B": [ 7 ],
+            "B": [ 6 ],
             "S": [ 2 ],
             "Y": [ 11 ]
           }
         },
-        "$abc$78$auto$blifparse.cc:371:parse_blif$81": {
-          "hide_name": 1,
-          "type": "$_NOT_",
-          "parameters": {
-          },
-          "attributes": {
-          },
-          "port_directions": {
-            "A": "input",
-            "Y": "output"
-          },
-          "connections": {
-            "A": [ 6 ],
-            "Y": [ 12 ]
-          }
-        },
-        "$abc$78$auto$blifparse.cc:371:parse_blif$82": {
+        "$abc$73$auto$blifparse.cc:371:parse_blif$76": {
           "hide_name": 1,
           "type": "$_ANDNOT_",
           "parameters": {
@@ -106,55 +94,17 @@
           },
           "connections": {
             "A": [ 5 ],
-            "B": [ 9 ],
-            "Y": [ 13 ]
+            "B": [ 8 ],
+            "Y": [ 9 ]
           }
         },
-        "$abc$78$auto$blifparse.cc:371:parse_blif$83": {
-          "hide_name": 1,
-          "type": "$_ANDNOT_",
-          "parameters": {
-          },
-          "attributes": {
-          },
-          "port_directions": {
-            "A": "input",
-            "B": "input",
-            "Y": "output"
-          },
-          "connections": {
-            "A": [ 9 ],
-            "B": [ 5 ],
-            "Y": [ 14 ]
-          }
-        },
-        "$abc$78$auto$blifparse.cc:371:parse_blif$84": {
-          "hide_name": 1,
-          "type": "$_MUX_",
-          "parameters": {
-          },
-          "attributes": {
-          },
-          "port_directions": {
-            "A": "input",
-            "B": "input",
-            "S": "input",
-            "Y": "output"
-          },
-          "connections": {
-            "A": [ 13 ],
-            "B": [ 14 ],
-            "S": [ 6 ],
-            "Y": [ 15 ]
-          }
-        },
-        "$auto$simplemap.cc:420:simplemap_dff$66": {
+        "$auto$simplemap.cc:420:simplemap_dff$69": {
           "hide_name": 1,
           "type": "$_DFF_P_",
           "parameters": {
           },
           "attributes": {
-            "src": "click_buf.v:45"
+            "src": "click_buf.v:47"
           },
           "port_directions": {
             "C": "input",
@@ -162,18 +112,18 @@
             "Q": "output"
           },
           "connections": {
-            "C": [ 15 ],
+            "C": [ 9 ],
             "D": [ 11 ],
-            "Q": [ 7 ]
+            "Q": [ 6 ]
           }
         },
-        "$auto$simplemap.cc:420:simplemap_dff$67": {
+        "$auto$simplemap.cc:420:simplemap_dff$70": {
           "hide_name": 1,
           "type": "$_DFF_P_",
           "parameters": {
           },
           "attributes": {
-            "src": "click_buf.v:45"
+            "src": "click_buf.v:47"
           },
           "port_directions": {
             "C": "input",
@@ -181,30 +131,9 @@
             "Q": "output"
           },
           "connections": {
-            "C": [ 15 ],
+            "C": [ 9 ],
             "D": [ 10 ],
-            "Q": [ 8 ]
-          }
-        },
-        "$auto$simplemap.cc:496:simplemap_adff$77": {
-          "hide_name": 1,
-          "type": "$_DFF_PP0_",
-          "parameters": {
-          },
-          "attributes": {
-            "src": "click_buf.v:35"
-          },
-          "port_directions": {
-            "C": "input",
-            "D": "input",
-            "Q": "output",
-            "R": "input"
-          },
-          "connections": {
-            "C": [ 15 ],
-            "D": [ 12 ],
-            "Q": [ 6 ],
-            "R": [ 2 ]
+            "Q": [ 7 ]
           }
         }
       },
@@ -213,38 +142,19 @@
           "hide_name": 1,
           "bits": [ 11, 10 ],
           "attributes": {
-            "src": "click_buf.v:45"
-          }
-        },
-        "$0\\toggle[0:0]": {
-          "hide_name": 1,
-          "bits": [ 12 ],
-          "attributes": {
-            "src": "click_buf.v:35"
-          }
-        },
-        "$abc$78$new_n16_": {
-          "hide_name": 1,
-          "bits": [ 13 ],
-          "attributes": {
-          }
-        },
-        "$abc$78$new_n17_": {
-          "hide_name": 1,
-          "bits": [ 14 ],
-          "attributes": {
+            "src": "click_buf.v:47"
           }
         },
         "clk_out": {
           "hide_name": 0,
-          "bits": [ 15 ],
+          "bits": [ 9 ],
           "attributes": {
-            "src": "click_buf.v:22"
+            "src": "click_buf.v:24"
           }
         },
         "in_ack": {
           "hide_name": 0,
-          "bits": [ 6 ],
+          "bits": [ "0" ],
           "attributes": {
             "src": "click_buf.v:13"
           }
@@ -263,23 +173,30 @@
             "src": "click_buf.v:12"
           }
         },
-        "out_ack": {
+        "o_fire": {
           "hide_name": 0,
           "bits": [ 9 ],
+          "attributes": {
+            "src": "click_buf.v:18"
+          }
+        },
+        "out_ack": {
+          "hide_name": 0,
+          "bits": [ 8 ],
           "attributes": {
             "src": "click_buf.v:16"
           }
         },
         "out_data": {
           "hide_name": 0,
-          "bits": [ 7, 8 ],
+          "bits": [ 6, 7 ],
           "attributes": {
             "src": "click_buf.v:14"
           }
         },
         "out_req": {
           "hide_name": 0,
-          "bits": [ 6 ],
+          "bits": [ "0" ],
           "attributes": {
             "src": "click_buf.v:15"
           }
@@ -293,7 +210,14 @@
         },
         "toggle": {
           "hide_name": 0,
-          "bits": [ 6 ],
+          "bits": [ "0" ],
+          "attributes": {
+            "src": "click_buf.v:25"
+          }
+        },
+        "wi_out": {
+          "hide_name": 0,
+          "bits": [ "1" ],
           "attributes": {
             "src": "click_buf.v:23"
           }
