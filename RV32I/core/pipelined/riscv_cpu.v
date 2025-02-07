@@ -10,7 +10,7 @@
 `include	"../common/riscv_configs.v"
 `include	"../common/riscv_dmem_interface.v"
 `include	"../common/riscv_mux.v"
-`include	"../common/riscv_register.v"
+//`include	"../common/riscv_register.v"
 `include	"../common/riscv_adder.v"
 `include	"../common/riscv_regfile.v"
 `include	"../common/riscv_alu.v"
@@ -355,7 +355,7 @@ module riscv_cpu
 	// -----------------------------------------------------
 	riscv_mux
 	#(
-		N_MUX_IN			(3					)
+		.N_MUX_IN			(3					)
 	)
 	u_riscv_mux_fwd_a(
 		.o_mux_data			(fwd_a		[EX]	),
@@ -365,7 +365,7 @@ module riscv_cpu
 
 	riscv_mux
 	#(
-		N_MUX_IN			(3					)
+		.N_MUX_IN			(3					)
 	)
 	u_riscv_mux_fwd_b(
 		.o_mux_data			(w_fwd_b		[EX]	),
@@ -376,7 +376,7 @@ module riscv_cpu
 
 	riscv_mux
 	#(
-		N_MUX_IN			(2					)
+		.N_MUX_IN			(2					)
 	)
 	u_riscv_mux_alu_a(
 		.o_mux_data			(alu_a		[EX]	),
@@ -386,7 +386,7 @@ module riscv_cpu
 
 	riscv_mux
 	#(
-		N_MUX_IN			(2					)
+		.N_MUX_IN			(2					)
 	)
 	u_riscv_mux_alu_b(
 		.o_mux_data			(alu_b		[EX]	),

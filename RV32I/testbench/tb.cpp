@@ -75,6 +75,6 @@ int main(int argc, char** argv, char** env)
 
     if (flag_vcd && 0==strcmp(flag_vcd, "+vcd")) vcdTrace->close();
     delete vcdTrace;
-    delete dut;
+	delete dut;
     exit(EXIT_SUCCESS);
 }

@@ -23,8 +23,8 @@ module riscv_top
 	output		[3:0]			o_riscv_dmem_strb,
 	output		[`XLEN-1:0]		o_riscv_dmem_wr_data,
 	output		[`XLEN-1:0]		o_riscv_dmem_rd_data,
-	input						i_clk,
-	input						i_rstn
+	input						i_clk/*verilator public */,						
+	input						i_rstn						/* verilator public */
 );
 	riscv_cpu
 	u_riscv_cpu(
