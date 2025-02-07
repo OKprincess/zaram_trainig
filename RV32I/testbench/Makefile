@@ -1,16 +1,15 @@
 # --------------------------------------------------
 #	Common Environment
 # --------------------------------------------------
-PRJ_PATH	=	/home/oksj/zaram_trainig/RV32I
+PRJ_PATH	=	/home/oksj_unix/projects/zaram_training/RV32I
 
 # --------------------------------------------------
 #	RTL Path & Top Design Name
 # --------------------------------------------------
-CPU_TYPE	=	singlecycle
+CPU_TYPE	=	pipelined	
 RTL_PATH	=	$(PRJ_PATH)/core
 RTL_NAME	=	riscv_top
 RTL_FILE	=	$(RTL_PATH)/$(CPU_TYPE)/$(RTL_NAME).v
-
 # --------------------------------------------------
 #	Verilator
 # --------------------------------------------------
