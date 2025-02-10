@@ -33,14 +33,14 @@ VL_MODULE(Vriscv_top_riscv_top) {
     // LOCAL SIGNALS
     // Anonymous structures to workaround compiler member-count bugs
     struct {
-        CData/*3:0*/ __PVT__u_riscv_cpu__DOT__u_riscv_dmem_interface__DOT__dmem_intf_strb;
         CData/*0:0*/ __PVT__u_riscv_cpu__DOT__u_riscv_hazard__DOT__stall;
+        CData/*3:0*/ __PVT__u_riscv_cpu__DOT__u_riscv_dmem_interface__DOT__dmem_intf_strb;
         WData/*95:0*/ __PVT__u_riscv_cpu__DOT__mux_concat_pc[3];
         WData/*95:0*/ __PVT__u_riscv_cpu__DOT__mux_concat_fwd_a[3];
         WData/*95:0*/ __PVT__u_riscv_cpu__DOT__mux_concat_fwd_b[3];
         WData/*127:0*/ __PVT__u_riscv_cpu__DOT__mux_concat_rd[4];
-        IData/*31:0*/ __PVT__u_riscv_cpu__DOT__u_riscv_dmem_interface__DOT__byte_aligned_dmem_rd_data;
         WData/*255:0*/ __PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[8];
+        IData/*31:0*/ __PVT__u_riscv_cpu__DOT__u_riscv_dmem_interface__DOT__byte_aligned_dmem_rd_data;
         WData/*1023:0*/ __PVT__u_riscv_imem__DOT__FILE_TEXT_MIF[32];
         WData/*1023:0*/ __PVT__u_riscv_dmem__DOT__FILE_DATA_MIF[32];
         IData/*31:0*/ __PVT__u_riscv_dmem__DOT__i;
@@ -108,22 +108,21 @@ VL_MODULE(Vriscv_top_riscv_top) {
     CData/*0:0*/ u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_alu_b;
     CData/*1:0*/ u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_rd;
     CData/*2:0*/ u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_imm;
-    CData/*2:0*/ __Vtableidx1;
+    CData/*6:0*/ __Vtableidx1;
     CData/*6:0*/ __Vtableidx2;
     CData/*6:0*/ __Vtableidx3;
-    CData/*6:0*/ __Vtableidx4;
-    CData/*3:0*/ __Vtableidx6;
-    SData/*10:0*/ __Vtableidx5;
+    CData/*3:0*/ __Vtableidx5;
+    CData/*2:0*/ __Vtableidx6;
+    SData/*10:0*/ __Vtableidx4;
     IData/*31:0*/ u_riscv_cpu__DOT____Vcellout__u_riscv_immmext__o_imm_ext;
     IData/*31:0*/ u_riscv_cpu__DOT____Vcellout__u_riscv_alu__o_alu_out;
-    CData/*0:0*/ __Vtablechg5[2048];
-    CData/*0:0*/ __Vtablechg6[16];
-    static CData/*3:0*/ __Vtable1___PVT__u_riscv_cpu__DOT__u_riscv_dmem_interface__DOT__dmem_intf_strb[8];
-    static CData/*2:0*/ __Vtable2_u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_imm[128];
-    static CData/*1:0*/ __Vtable3_u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_rd[128];
-    static CData/*0:0*/ __Vtable4_u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_alu_b[128];
-    static WData/*255:0*/ __Vtable5___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[2048][8];
-    static QData/*63:0*/ __Vtable6___PVT__u_riscv_cpu__DOT__u_riscv_alu__DOT__DEBUG_ALU_OP[16];
+    CData/*0:0*/ __Vtablechg5[16];
+    static CData/*2:0*/ __Vtable1_u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_imm[128];
+    static CData/*1:0*/ __Vtable2_u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_rd[128];
+    static CData/*0:0*/ __Vtable3_u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_alu_b[128];
+    static WData/*255:0*/ __Vtable4___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[2048][8];
+    static QData/*63:0*/ __Vtable5___PVT__u_riscv_cpu__DOT__u_riscv_alu__DOT__DEBUG_ALU_OP[16];
+    static CData/*3:0*/ __Vtable6___PVT__u_riscv_cpu__DOT__u_riscv_dmem_interface__DOT__dmem_intf_strb[8];
     
     // INTERNAL VARIABLES
   private:

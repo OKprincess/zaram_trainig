@@ -400,12 +400,12 @@ VL_INLINE_OPT void Vriscv_top_riscv_top::_sequent__TOP__riscv_top__3(Vriscv_top_
         vlSymsp->TOP__riscv_top.__PVT__u_riscv_dmem__DOT__dmem_arr[__Vdlyvdim0__u_riscv_dmem__DOT__dmem_arr__v4] 
             = __Vdlyvval__u_riscv_dmem__DOT__dmem_arr__v4;
     }
-    vlSymsp->TOP__riscv_top.__Vtableidx6 = vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__alu_ctrl
+    vlSymsp->TOP__riscv_top.__Vtableidx5 = vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__alu_ctrl
         [0U];
-    if (vlSymsp->TOP__riscv_top.__Vtablechg6[vlSymsp->TOP__riscv_top.__Vtableidx6]) {
+    if (vlSymsp->TOP__riscv_top.__Vtablechg5[vlSymsp->TOP__riscv_top.__Vtableidx5]) {
         vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_alu__DOT__DEBUG_ALU_OP 
-            = vlSymsp->TOP__riscv_top.__Vtable6___PVT__u_riscv_cpu__DOT__u_riscv_alu__DOT__DEBUG_ALU_OP
-            [vlSymsp->TOP__riscv_top.__Vtableidx6];
+            = vlSymsp->TOP__riscv_top.__Vtable5___PVT__u_riscv_cpu__DOT__u_riscv_alu__DOT__DEBUG_ALU_OP
+            [vlSymsp->TOP__riscv_top.__Vtableidx5];
     }
     vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__funct7_5b[0U] 
         = (1U & (vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__instr
@@ -458,21 +458,21 @@ VL_INLINE_OPT void Vriscv_top_riscv_top::_sequent__TOP__riscv_top__3(Vriscv_top_
     vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__w_src_alu_a[0U] 
         = (0x17U == vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__opcode
            [0U]);
-    vlSymsp->TOP__riscv_top.__Vtableidx3 = vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__opcode
-        [0U];
-    vlSymsp->TOP__riscv_top.u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_rd 
-        = vlSymsp->TOP__riscv_top.__Vtable3_u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_rd
-        [vlSymsp->TOP__riscv_top.__Vtableidx3];
-    vlSymsp->TOP__riscv_top.__Vtableidx4 = vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__opcode
-        [0U];
-    vlSymsp->TOP__riscv_top.u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_alu_b 
-        = vlSymsp->TOP__riscv_top.__Vtable4_u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_alu_b
-        [vlSymsp->TOP__riscv_top.__Vtableidx4];
     vlSymsp->TOP__riscv_top.__Vtableidx2 = vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__opcode
         [0U];
-    vlSymsp->TOP__riscv_top.u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_imm 
-        = vlSymsp->TOP__riscv_top.__Vtable2_u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_imm
+    vlSymsp->TOP__riscv_top.u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_rd 
+        = vlSymsp->TOP__riscv_top.__Vtable2_u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_rd
         [vlSymsp->TOP__riscv_top.__Vtableidx2];
+    vlSymsp->TOP__riscv_top.__Vtableidx3 = vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__opcode
+        [0U];
+    vlSymsp->TOP__riscv_top.u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_alu_b 
+        = vlSymsp->TOP__riscv_top.__Vtable3_u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_alu_b
+        [vlSymsp->TOP__riscv_top.__Vtableidx3];
+    vlSymsp->TOP__riscv_top.__Vtableidx1 = vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__opcode
+        [0U];
+    vlSymsp->TOP__riscv_top.u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_imm 
+        = vlSymsp->TOP__riscv_top.__Vtable1_u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_src_imm
+        [vlSymsp->TOP__riscv_top.__Vtableidx1];
     vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_hazard__DOT__stall 
         = (((vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__rs1
              [0U] == vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__rd
@@ -506,39 +506,37 @@ VL_INLINE_OPT void Vriscv_top_riscv_top::_sequent__TOP__riscv_top__3(Vriscv_top_
                                                 vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__rs1
                                                 [1U]))
                                       ? 2U : 0U));
-    vlSymsp->TOP__riscv_top.__Vtableidx5 = ((vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__funct7_5b
+    vlSymsp->TOP__riscv_top.__Vtableidx4 = ((vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__funct7_5b
                                              [0U] << 0xaU) 
                                             | ((vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__funct3
                                                 [0U] 
                                                 << 7U) 
                                                | vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__opcode
                                                [0U]));
-    if (vlSymsp->TOP__riscv_top.__Vtablechg5[vlSymsp->TOP__riscv_top.__Vtableidx5]) {
-        vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[0U] 
-            = vlSymsp->TOP__riscv_top.__Vtable5___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
-            [vlSymsp->TOP__riscv_top.__Vtableidx5][0U];
-        vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[1U] 
-            = vlSymsp->TOP__riscv_top.__Vtable5___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
-            [vlSymsp->TOP__riscv_top.__Vtableidx5][1U];
-        vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[2U] 
-            = vlSymsp->TOP__riscv_top.__Vtable5___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
-            [vlSymsp->TOP__riscv_top.__Vtableidx5][2U];
-        vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[3U] 
-            = vlSymsp->TOP__riscv_top.__Vtable5___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
-            [vlSymsp->TOP__riscv_top.__Vtableidx5][3U];
-        vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[4U] 
-            = vlSymsp->TOP__riscv_top.__Vtable5___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
-            [vlSymsp->TOP__riscv_top.__Vtableidx5][4U];
-        vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[5U] 
-            = vlSymsp->TOP__riscv_top.__Vtable5___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
-            [vlSymsp->TOP__riscv_top.__Vtableidx5][5U];
-        vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[6U] 
-            = vlSymsp->TOP__riscv_top.__Vtable5___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
-            [vlSymsp->TOP__riscv_top.__Vtableidx5][6U];
-        vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[7U] 
-            = vlSymsp->TOP__riscv_top.__Vtable5___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
-            [vlSymsp->TOP__riscv_top.__Vtableidx5][7U];
-    }
+    vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[0U] 
+        = vlSymsp->TOP__riscv_top.__Vtable4___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
+        [vlSymsp->TOP__riscv_top.__Vtableidx4][0U];
+    vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[1U] 
+        = vlSymsp->TOP__riscv_top.__Vtable4___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
+        [vlSymsp->TOP__riscv_top.__Vtableidx4][1U];
+    vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[2U] 
+        = vlSymsp->TOP__riscv_top.__Vtable4___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
+        [vlSymsp->TOP__riscv_top.__Vtableidx4][2U];
+    vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[3U] 
+        = vlSymsp->TOP__riscv_top.__Vtable4___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
+        [vlSymsp->TOP__riscv_top.__Vtableidx4][3U];
+    vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[4U] 
+        = vlSymsp->TOP__riscv_top.__Vtable4___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
+        [vlSymsp->TOP__riscv_top.__Vtableidx4][4U];
+    vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[5U] 
+        = vlSymsp->TOP__riscv_top.__Vtable4___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
+        [vlSymsp->TOP__riscv_top.__Vtableidx4][5U];
+    vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[6U] 
+        = vlSymsp->TOP__riscv_top.__Vtable4___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
+        [vlSymsp->TOP__riscv_top.__Vtableidx4][6U];
+    vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR[7U] 
+        = vlSymsp->TOP__riscv_top.__Vtable4___PVT__u_riscv_cpu__DOT__u_riscv_ctrl__DOT__DEBUG_INSTR
+        [vlSymsp->TOP__riscv_top.__Vtableidx4][7U];
     vlSymsp->TOP__riscv_top.u_riscv_cpu__DOT____Vcellout__u_riscv_ctrl__o_ctrl_alu_ctrl 
         = (((0x33U == vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__opcode
              [0U]) | (0x13U == vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__opcode
@@ -573,11 +571,11 @@ VL_INLINE_OPT void Vriscv_top_riscv_top::_sequent__TOP__riscv_top__3(Vriscv_top_
                                     [0U]) ? 3U : 2U)
                           : ((2U & vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__funct3
                               [0U]) ? 0xfU : 8U)) : 0U));
-    vlSymsp->TOP__riscv_top.__Vtableidx1 = vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__funct3
+    vlSymsp->TOP__riscv_top.__Vtableidx6 = vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__funct3
         [2U];
     vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_dmem_interface__DOT__dmem_intf_strb 
-        = vlSymsp->TOP__riscv_top.__Vtable1___PVT__u_riscv_cpu__DOT__u_riscv_dmem_interface__DOT__dmem_intf_strb
-        [vlSymsp->TOP__riscv_top.__Vtableidx1];
+        = vlSymsp->TOP__riscv_top.__Vtable6___PVT__u_riscv_cpu__DOT__u_riscv_dmem_interface__DOT__dmem_intf_strb
+        [vlSymsp->TOP__riscv_top.__Vtableidx6];
     vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__u_riscv_dmem_interface__DOT__byte_aligned_dmem_rd_data 
         = ((0x1fU >= (0x18U & (vlSymsp->TOP__riscv_top.__PVT__u_riscv_cpu__DOT__alu_out
                                [0U] << 3U))) ? (vlSymsp->TOP__riscv_top.o_riscv_dmem_rd_data 
