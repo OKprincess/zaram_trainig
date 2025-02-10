@@ -39,32 +39,7 @@ module riscv_cpu
 	localparam	MM	=	3;
 	localparam	WB	=	4;
 
-	// -----------------------------------------------------
-	// IF Stage
-	// -----------------------------------------------------
-	always @(*) begin
-		o_cpu_pc	= pc[IF];
-		instr[IF]	= i_cpu_instr;
-	end
 	
-	// -----------------------------------------------------
-	//  MM Stage
-	// -----------------------------------------------------
-	riscv_dmem_interface
-	u_riscv_dmem_interface(
-		.o_dmem_intf_addr		(o_cpu_mem_addr			),
-		.o_dmem_intf_wen		(o_cpu_mem_wr_en		),
-		.o_dmem_intf_wr_data	(o_cpu_mem_wr_data		),
-		.o_dmem_intf_byte_sel	(o_cpu_mem_strb			),
-		.o_dmem_intf_rd_data	(mem_rd_data[MM]		),
-		.i_dmem_intf_addr		(alu_out	[MM]		),
-		.i_dmem_intf_wen		(mem_wr_en	[MM]		),
-		.i_dmem_intf_wr_data	(fwd_b		[MM]		),
-		.i_dmem_intf_rd_data	(i_cpu_mem_rd_data		),
-		.i_dmem_intf_func3		(funct3		[MM]		)
-		);
-		
-	wire	[`XLEN-1:0]		pc_next;
 
 	// -----------------------------------------------------
 	// Internal Signals 
@@ -283,8 +258,15 @@ module riscv_cpu
 	assign	mux_concat_rd		= {imm[WB],			pc4[WB],		mem_rd_data[WB],	alu_out[WB]};
 
 	// -----------------------------------------------------
-	// IF
+	// IF Stage
 	// -----------------------------------------------------
+	always @(*) begin
+		o_cpu_pc	= pc[IF];
+		instr[IF]	= i_cpu_instr;
+	end
+
+	wire	[`XLEN-1:0]		pc_next;
+
 	riscv_mux
 	#(
 		.N_MUX_IN			(3				)
@@ -411,6 +393,23 @@ module riscv_cpu
 		.i_adder_a			(pc			[EX]	),
 		.i_adder_b			(imm		[EX]	)
 	);
+	// -----------------------------------------------------
+	//  MM Stage
+	// -----------------------------------------------------
+	riscv_dmem_interface
+	u_riscv_dmem_interface(
+		.o_dmem_intf_addr		(o_cpu_mem_addr			),
+		.o_dmem_intf_wen		(o_cpu_mem_wr_en		),
+		.o_dmem_intf_wr_data	(o_cpu_mem_wr_data		),
+		.o_dmem_intf_byte_sel	(o_cpu_mem_strb			),
+		.o_dmem_intf_rd_data	(mem_rd_data[MM]		),
+		.i_dmem_intf_addr		(alu_out	[MM]		),
+		.i_dmem_intf_wen		(mem_wr_en	[MM]		),
+		.i_dmem_intf_wr_data	(fwd_b		[MM]		),
+		.i_dmem_intf_rd_data	(i_cpu_mem_rd_data		),
+		.i_dmem_intf_func3		(funct3		[MM]		)
+		);
+		
 	// -----------------------------------------------------
 	//  WB Stage
 	// -----------------------------------------------------

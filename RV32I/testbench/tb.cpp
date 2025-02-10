@@ -44,7 +44,8 @@ int main(int argc, char** argv, char** env)
 
 	//	DUT Instanciate
     Vriscv_top	*dut = new Vriscv_top;
-
+	
+	printf("DUT Instanciate complete");
 	//	Plus Arguments based VCD
 	VerilatedVcdC *vcdTrace = new VerilatedVcdC;
 	const char* flag_vcd = Verilated::commandArgsPlusMatch("vcd");
@@ -60,8 +61,13 @@ int main(int argc, char** argv, char** env)
 		dutReset(dut, sim_time);
         dut->i_clk ^= 1;
         dut->eval();
-        if (flag_vcd && 0==strcmp(flag_vcd, "+vcd")) vcdTrace->dump(sim_time);
-		if (sim_flag == 0) break;
+        if (flag_vcd && 0==strcmp(flag_vcd, "+vcd")) {
+			vcdTrace->dump(sim_time);
+		}
+		if (sim_flag == 0) {
+			printf("sim_flag is zero");
+			break;
+		}
         if (dut->o_riscv_dmem_wr_en && dut->o_riscv_dmem_addr == 0xfffffff0) {
             if (dut->o_riscv_dmem_wr_data) {
 				printf("PASS:");
@@ -69,7 +75,10 @@ int main(int argc, char** argv, char** env)
 				printf("FAIL:");
             }
 			sim_flag	= 0;
-        }
+        }else{
+			printf("dmem_wr_en & dmem_addr fffffff0 X \n");
+			printf("dmem_wr_en %d, dmem_addr %x \n", dut->o_riscv_dmem_wr_en, dut->o_riscv_dmem_addr);
+		}
         sim_time++;
     }
 
