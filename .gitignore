@@ -1,5 +1,2 @@
-*.vcd
-
 *.log
-
 RV32I/testbench/vcd/
