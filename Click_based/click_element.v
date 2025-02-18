@@ -2,38 +2,46 @@
 //	=================[ VLSISYS Lab. ]=================
 //	* Author		: oksj (oksj@sookmyung.ac.kr)
 //	* Filename		: click_element.v
-//	* Date			: 2025-01-22 
 //	* Description	: 
 // ===================================================
-`include	"dff.v"
+module click_element #(
+	parameter	DATA_WIDTH	= 2,
+	parameter	VALUE		= 0,
+	parameter	PHASE_INIT	= 1'b0
+)(
+	output	reg						in_ack,
+	output	reg						out_req,
+	output	reg	[DATA_WIDTH-1:0]	out_data,
 
-module click_element
-(
-	output	o_fire,
-	output	o_req,
-	input	i_req, 
-	input	i_out_ack
+	input							in_req, 
+	input							out_ack,
+	input		[DATA_WIDTH-1:0]	in_data,
+	input							reset
 );
 
-	wire	out_xor; 
-	wire	out_xnor;
-	wire	fire;
-	wire	ack_req;
+	reg							phase;
+	reg		[DATA_WIDTH-1:0]	data_sig;
+	wire						click;
 
-	xor 	u_xor0 	(out_xor, 	i_req,		ack_req);
-	xnor	u_xnor0	(out_xnor,	i_out_ack, 	ack_req);
-	and		u_and0	(fire,		out_xor,	out_xnor);
+	// Control path
+	assign	out_req		= phase;
+	assign	in_ack		= phase;
+	assign	out_data	= data_sig;
 
-	dff
-	u_dff(
-		.o_q		(ack_req	),
-		.i_d		(!ack_req	),
-		.i_clk		(fire		)
-	);
+	// Click generation
+	assign	click		= (~in_req&phase&out_ack) | (~out_ack&~phase&in_req);
 
+	// State register process
+	always @(posedge click or posedge reset) begin
+		if(reset) begin
+			phase		<= PHASE_INIT;
+			data_sig	<= VALUE;
+		end else begin
+			phase		<= ~phase;
+			data_sig	<= in_data;
+		end
+	end
 
-	assign	o_fire	= fire;
-	assign	o_req	= ack_req;
 
 endmodule
 
