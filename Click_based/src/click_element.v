@@ -5,7 +5,7 @@
 //	* Description	: 
 // ===================================================
 module click_element #(
-	parameter	DATA_WIDTH	= 2,
+	parameter	DATA_WIDTH	= 32,
 	parameter	VALUE		= 0,
 	parameter	PHASE_INIT	= 1'b0
 )(
