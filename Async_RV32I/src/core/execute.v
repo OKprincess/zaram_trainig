@@ -5,6 +5,12 @@
 //	* Description	: 
 // ===================================================
 `include	"pkg.v"
+`include	"adder.v"
+`include	"logic.v"
+`include	"shift.v"
+`include	"branch.v"
+`include	"memory.v"
+`include	"branch.v"
 
 module execute(
     input 		         i_clk,
@@ -36,120 +42,68 @@ module execute(
     reg	[2:0]	alu_stage2;
 
 ///////////////////////////////////////////////////// Instantiation of execution units  ////////////////////
-    //adder       adder1 (.clk(clk), .opA(adderA), .opB(adderB), .i(adder_i), .result_out(result[0]));
-	reg	[31:0]	adder_result;
-	always @(*) begin
-		if(adder_i==`OP3) begin
-			if($signed(adderA)<$signed(adderB))
-				adder_result <= 32'b1;
-			else
-				adder_result <= 32'b0;
-		end else if(adder_i==`OP1) begin
-			if($unsigned(adderA)<$unsigned(adderB))
-				adder_result <= 32'b1;
-			else
-				adder_result <= 32'b0;
-		end else if(adder_i==`OP1) begin
-			adder_result <= adderA - adderB;
-		end else begin
-			adder_result <= adderA + adderB;
-		end
-	end
+    adder       
+	u_adder (
+		.i_clk			(i_clk), 
+		.i_opA			(adderA), 	
+		.i_opB			(adderB), 
+		.i_instr_type	(adder_i), 
+		.o_result		(result[0])
+	);
 
-	always @(posedge i_clk) begin
-		result[0] <= adder_result;	
-	end
-
-    //logicUnit   logical1 (.clk(clk), .opA(logicA), .opB(logicB), .i(logic_i), .result_out(result[1]));
-	reg	[31:0]	logic_result;
-	always @(*) begin
-		if(logic_i==`OP0)
-			logic_result <= logicA ^ logicB;
-		else if (logic_i==`OP1)
-			logic_result <= logicA | logicB;
-		else
-			logic_result <= logicA & logicB;
-	end
-
-	always @(posedge i_clk) begin
-		result[1] <= logic_result;	
-	end
-    
-	//shiftUnit   shift1 (.clk(clk), .opA(shiftA), .opB(shiftB), .i(shift_i), .result_out(result[2]));
-	reg	[31:0]	shift_result;
-	always @(*) begin
-		if(shift_i==`OP0)
-			shift_result <= shiftA << shiftB;
-		else if (shift_i==`OP1)
-			shift_result <= shiftA >> shiftB;
-		else
-			shift_result <= $signed(shiftA) >>> shiftB;
-	end
-
-	always @(posedge i_clk) begin
-		result[2] <= shift_result;
-	end
-    /*branchUnit  branch1 (.clk(clk), .opA(branchA), .opB(branchB), .offset(branchC), .NPC(NPCbranch), .i(branch_i),
-                .result_out(result[4]), .result_jal(result[3]), .jump_out(jump_int), .we_out(we_branchUnit));*/
-	reg	[31:0]	branch_result, branch_sum;
-	reg			branch_jump, branch_wr_en;
-	///////////////////////RESULT assign//////////////////////
-	assign		branch_sum = branchA + branchB;
-	always @(*) begin
-		if(branch_i==`OP6)
-			branch_result <= branch_sum;
-		else if (branch_i==`OP7) begin
-			branch_result[31:1] <= branch_sum[31:1];
-			branch_result[0]	<= 0;
-		end else
-			branch_result <= NPCbranch + branchC;
-	end
-	////////////////////Generates branch signal////////////////////
-	always @(*) begin
-		if(branch_i==`OP0)
-			branch_jump <= (branchA==branchB);
-		else if (branch_i==`OP1)
-			branch_jump <= (branchA!=branchB);
-		else if (branch_i==`OP2)
-			branch_jump <= ($signed(branchA)<$signed(branchB));
-		else if (branch_i==`OP3)
-			branch_jump <= ($unsigned(branchA)<$unsigned(branchB));
-		else if (branch_i==`OP4)
-			branch_jump <= ($signed(branchA)>=$signed(branchB));
-		else if (branch_i==`OP5)
-			branch_jump <= ($unsigned(branchA)>=$unsigned(branchB));
-		else if ((branch_i==`OP6)||(branch_i==`OP7))
-			branch_jump	<= 1;
-		else
-			branch_jump	<= 0;
-	end
-	
-	////////////write en signal/////////////
-	always @(*) begin
-		if((branch_i==`OP6)||(branch_i==`OP7))
-			branch_wr_en <= 1'b1;
-		else
-			branch_wr_en <= 1'b0;
-	end
-
-	///////////output//////////////
-	always @(posedge i_clk) begin
-		result[4] <= branch_result;
-		result[3] <= NPCbranch+4;
-		jump_int  <= branch_jump;
-		we_branchUnit <= branch_wr_en;
-	end
+    logicUnit   
+	u_logic (
+		.i_clk			(i_clk), 
+		.i_opA			(logicA), 
+		.i_opB			(logicB), 
+		.i_instr_type	(logic_i), 
+		.o_result		(result[1])
+	);
+	shiftUnit   
+	u_shift (
+		.i_clk			(i_clk), 
+		.i_opA			(shiftA), 
+		.i_opB			(shiftB), 
+		.i_instr_type	(shift_i), 
+		.o_result		(result[2])
+	);
+    branchUnit  
+	u_branch (
+		.i_clk			(i_clk), 
+		.i_opA			(branchA), 
+		.i_opB			(branchB), 
+		.i_offset		(branchC), 
+		.i_next_pc		(NPCbranch), 
+		.i_instr_type	(branch_i),
+        .o_result		(result[4]), 
+		.o_result_jal	(result[3]), 
+		.o_jump			(jump_int), 
+		.o_wr_en		(we_branchUnit)
+	);
 		
-    /*memoryUnit  memory1 (.clk(clk), .opA(memoryA), .opB(memoryB), .data(memoryC), .i(memory_i), .read_address(read_address), .read(read),
-                .DATA_in(DATA_in), .write_address(result[7]), .DATA_wb(result[6]),  .write(write_int), .size(size_int), .we_out(we_memoryUnit));*/
-	reg	mem_write, mem_wr_en;
-	reg [31:0] mem_DATA_write, mem_write_addr2;
-	reg	[1:0]	size_mem;
+    memoryUnit  
+	u_memory (
+		.i_clk			(i_clk), 
+		.i_opA			(memoryA), 
+		.i_opB			(memoryB), 
+		.i_wr_data		(memoryC), 
+		.i_instr_type	(memory_i), 
+		.o_read_addr	(read_address), 
+		.o_read			(read),
+        .i_read_data	(DATA_in), 
+		.o_wr_addr		(result[7]), 
+		.o_wb_data		(result[6]),  
+		.o_write		(write_int), 
+		.o_size			(size_int), 
+		.o_wr_en		(we_memoryUnit)
+	);
 
-
-
-
-    //bypassUnit  bypassUnit1 (.clk(clk), .opA(bypassB), .result_out(result[5]));
+    bypassUnit  
+	u_bypassUnit (
+		.i_clk			(i_clk), 
+		.i_opA			(bypassB), 
+		.o_result		(result[5])
+	);
 	
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     always@(posedge i_clk) begin  // Generates a internal second stage to DEMUX operation
@@ -161,8 +115,8 @@ module execute(
       ////////////////////////////////////// adder /////////////////////////////////////////////////////////
         if(i_alu_sel==`ADDER) begin
             adder_i <= i_instr_type;
-            adderA <= opA;
-            adderB <= opB;
+            adderA <= i_opA;
+            adderB <= i_opB;
         end else begin
             adder_i <= NOTOKEN;
             adderA <= Z;
@@ -170,9 +124,9 @@ module execute(
         end
       ////////////////////////////////////// logic /////////////////////////////////////////////////////////
         if (i_alu_sel==`LOGICAL) begin
-            logic_i <= i;
-            logicA <= opA;
-            logicB <= opB;
+            logic_i <= i_instr_type;
+            logicA <= i_opA;
+            logicB <= i_opB;
         end else begin
             logic_i <= NOTOKEN;
             logicA <= Z;
@@ -180,9 +134,9 @@ module execute(
         end
       ////////////////////////////////////// shift /////////////////////////////////////////////////////////
         if (i_alu_sel==`SHIFTER) begin
-            shift_i <= i;
-            shiftA <= opA;
-            shiftB <= opB[4:0];
+            shift_i <= i_instr_type;
+            shiftA <= i_opA;
+            shiftB <= i_opB[4:0];
         end else begin
             shift_i <= NOTOKEN;
             shiftA <= Z;
@@ -190,10 +144,10 @@ module execute(
         end
       ////////////////////////////////////// branch ////////////////////////////////////////////////////////
         if (i_alu_sel==`BRANCH) begin
-            branch_i <= i;
-            branchA <= opA;
-            branchB <= opB;
-            branchC <= opC;
+            branch_i <= i_instr_type;
+            branchA <= i_opA;
+            branchB <= i_opB;
+            branchC <= i_opC;
             NPCbranch <= NPC;
         end else begin
             branch_i <= NOTOKEN;
@@ -204,10 +158,10 @@ module execute(
         end
       ////////////////////////////////////// memory ////////////////////////////////////////////////////////
         if (i_alu_sel==`MEMORY) begin
-            memory_i <= i;
-            memoryA <= opA;
-            memoryB <= opB;
-            memoryC <= opC;
+            memory_i <= i_instr_type;
+            memoryA <= i_opA;
+            memoryB <= i_opB;
+            memoryC <= i_opC;
         end else begin
             memory_i <= NOTOKEN;
             memoryA <= Z;
@@ -216,49 +170,49 @@ module execute(
         end
       ////////////////////////////////////// bypass ////////////////////////////////////////////////////////
         if(i_alu_sel==`BYPASS)
-            bypassB <= opB;
+            bypassB <= i_opB;
         else
             bypassB <= Z;
         end
 
 ///////////////////////////////////////////////// DEMUX ////////////////////////////////////////////////////
     always @(*) begin                    // RESULT[0]
-        if(alu_stage2==adder)
+        if(alu_stage2==`ADDER)
             result_out[0] <= result[0];
-        else if(xu_stage2==logical)
+        else if(alu_stage2==`LOGICAL)
             result_out[0] <= result[1];
-        else if(xu_stage2==shifter)
+        else if(alu_stage2==`SHIFTER)
             result_out[0] <= result[2];
-        else if(xu_stage2==branch)
+        else if(alu_stage2==`BRANCH)
             result_out[0] <= result[3];
-        else if(xu_stage2==memory)
+        else if(alu_stage2==`MEMORY)
             result_out[0] <= result[6];
         else
             result_out[0] <= result[5];
    ////////////////////////////////////
-        if(xu_stage2==branch)             // RESULT[1]
+        if(alu_stage2==`BRANCH)             // RESULT[1]
             result_out[1] <= result[4];
-        else if(xu_stage2==memory)
+        else if(alu_stage2==`MEMORY)
             result_out[1] <= result[7];
         else
-            result_out[1] <= '0;
+            result_out[1] <= 0;
    ////////////////////////////////////
-        if(xu_stage2==branch)             // JUMP_OUT
+        if(alu_stage2==`BRANCH)             // JUMP_OUT
             jump_out <= jump_int;
         else
-            jump_out <= '0;
+            jump_out <= 0;
    ////////////////////////////////////
-        if(xu_stage2==memory) begin       // SIZE & WRITE
+        if(alu_stage2==`MEMORY) begin       // SIZE & WRITE
             size <= size_int;
             write <= write_int;
         end else begin
-            size <= '0;
-            write <= '0;
+            size <= 0;
+            write <= 0;
         end
    ////////////////////////////////////
-        if(xu_stage2==branch)             // WE_OUT
+        if(alu_stage2==`BRANCH)             // WE_OUT
             we_out <= we_branchUnit;
-        else if(xu_stage2==memory)
+        else if(alu_stage2==`MEMORY)
             we_out <= we_memoryUnit;
         else
             we_out <= 1;

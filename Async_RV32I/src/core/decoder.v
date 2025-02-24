@@ -89,7 +89,7 @@ module decoder
 			`SLL, `SRL, `SRA									:	alu_sel	= `SHIFTER;
 			`BEQ, `BNE, `BLT, `BLTU, `BGE, `BGEU, `JAL, `JALR	:	alu_sel	= `BRANCH;
 			`LB, `LBU, `LH, `LHU, `LW, `SB, `SH, `SW			:	alu_sel	= `MEMORY;
-			default												:	alu_sel	= `BYBASS;
+			default												:	alu_sel	= `BYPASS;
 		endcase
 	end
 

@@ -5,7 +5,12 @@
 //	* Date			: 2025-02-21 
 //	* Description	: 
 // ===================================================
-
+`define	DEBUG
+`define	XLEN			32
+`define	DMEM_ADDR_BIT	16
+`define	IMEM_ADDR_BIT	16
+`define	DMEM_INIT
+`define	IMEM_INIT
 /////////////////////////Instruction Format/////////////////////
 `define	R_TYPE	3'b000
 `define	I_TYPE	3'b001
