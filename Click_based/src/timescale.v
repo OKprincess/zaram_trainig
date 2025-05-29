@@ -1,1 +1,0 @@
-/home/oksj_unix/templates/verilog/timescale.v
